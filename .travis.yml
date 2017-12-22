@@ -14,8 +14,6 @@ install:
     - pip install git+https://github.com/tayciryahmed/ramp-workflow
     - pip install -r requirements.txt
 script:
-    - flake8 *.py submissions/*/*.py
-#    - jupyter nbconvert --execute fake_news_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL
     - ramp_test_submission --quick-test
 notifications:
 email: true
