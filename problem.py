@@ -6,6 +6,7 @@ from sklearn.model_selection import ShuffleSplit
 import numpy as np
 from sklearn.metrics import mean_absolute_error
 
+
 class mean_error(rw.score_types.BaseScoreType):
     is_lower_the_better = True
     minimum = 0.0
@@ -16,7 +17,8 @@ class mean_error(rw.score_types.BaseScoreType):
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-	return mean_absolute_error(y_true, y_pred) / np.mean(y_true)
+        return mean_absolute_error(y_true, y_pred) / np.mean(y_true)
+
 
 problem_title = 'Predictive maintenance'
 _target_column_name = 'RUL'
