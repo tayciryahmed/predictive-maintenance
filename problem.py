@@ -45,10 +45,10 @@ def _read_data(path, f_name):
 
 
 def get_train_data(path='.'):
-    f_name = 'train'
+    f_name = 'train1.txt'
     return _read_data(path, f_name)
 
 
 def get_test_data(path='.'):
-    f_name = 'test'
+    f_name = 'test1.txt'
     return _read_data(path, f_name)
