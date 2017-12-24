@@ -15,5 +15,3 @@ install:
     - pip install -r requirements.txt
 script:
     - ramp_test_submission --quick-test
-notifications:
-email: true
