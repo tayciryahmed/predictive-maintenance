@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_error
 
 
-class mean_error(rw.score_types.BaseScoreType):
+class RelativeRMSE(rw.score_types.BaseScoreType):
     is_lower_the_better = True
     minimum = 0.0
     maximum = float('inf')
@@ -17,7 +17,7 @@ class mean_error(rw.score_types.BaseScoreType):
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-        return mean_absolute_error(y_true, y_pred) / np.mean(y_true)
+        return np.sqrt(np.mean(np.square((y_true - y_pred) /(y_true+1))))
 
 
 problem_title = 'Predictive maintenance'
@@ -28,7 +28,8 @@ Predictions = rw.prediction_types.make_regression()
 workflow = rw.workflows.FeatureExtractorRegressor()
 
 score_types = [
-    mean_error(name='mean error', precision=3),
+    RelativeRMSE(name='Relative RMSE', precision=3),
+    #rw.score_types.RMSE(name='rmse', precision=1),
 ]
 
 
@@ -45,10 +46,10 @@ def _read_data(path, f_name):
 
 
 def get_train_data(path='.'):
-    f_name = 'train1.txt'
+    f_name = 'train.txt'
     return _read_data(path, f_name)
 
 
 def get_test_data(path='.'):
-    f_name = 'test1.txt'
+    f_name = 'test.txt'
     return _read_data(path, f_name)
