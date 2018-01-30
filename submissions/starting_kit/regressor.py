@@ -1,14 +1,15 @@
-from sklearn.ensemble import RandomForestRegressor
+from __future__ import absolute_import
 from sklearn.base import BaseEstimator
+from sklearn.ensemble import RandomForestRegressor
 
 
 class Regressor(BaseEstimator):
+    
     def __init__(self):
-        self.clf = RandomForestRegressor(
-            n_estimators=10, max_depth=10, max_features=10)
+        self.reg = RandomForestRegressor()
 
     def fit(self, X, y):
-        self.clf.fit(X, y)
+        return self.reg.fit(X, y)
 
     def predict(self, X):
-        return self.clf.predict(X)
+        return self.reg.predict(X)
