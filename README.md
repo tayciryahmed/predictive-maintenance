@@ -2,7 +2,6 @@
 
 Predictive maintenance and understanding root cause of failures can offer millions of dollars in potential savings along with far fewer days of equipment downtime. RUL estimates provide decision makers with information that allows them to change operational characteristics (such as load) which in turn may prolong the life of the component.
 
-Authors: 
 
 [![Build Status](https://travis-ci.org/ramp-kits/fake_news.svg?branch=master)](https://travis-ci.org/tayciryahmed/predictive-maintenance)
 
